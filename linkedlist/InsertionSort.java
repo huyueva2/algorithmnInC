@@ -6,23 +6,16 @@ public class InsertionSort {
 	public static Node sort(Node origin) {
 		Node sortedList = new Node();
 		sortedList.setNext(null);
-		Node oriNext,tarNext = null;
-		for (Node oriNode = origin.getNext(); oriNode != null; oriNode = oriNext) {
-			Node targetNode = null;
+		Node oriNode,oriNext,targetNode = null;
+		for (oriNode  = origin.getNext(); oriNode != null; oriNode = oriNext) {
 			oriNext = oriNode.getNext();
-			for (targetNode = sortedList; targetNode.getNext() != null; targetNode = tarNext) {
-				tarNext = targetNode.getNext();
-				if (oriNode.getItem() > targetNode.getNext().getItem()) {
-					continue;
+			for (targetNode = sortedList; targetNode.getNext() != null; targetNode = targetNode.getNext()) {
+				if (oriNode.getItem() < targetNode.getNext().getItem()) {
+					break;
 				}
+			}
 				oriNode.setNext(targetNode.getNext());
 				targetNode.setNext(oriNode);
-				break;
-			}
-			if (targetNode.getNext() == null) {
-				oriNode.setNext(targetNode.getNext());
-				targetNode.setNext(oriNode);
-			}
 		}
 		return sortedList;
 	}
