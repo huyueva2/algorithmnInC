@@ -14,8 +14,8 @@ public class InsertionSort {
 					break;
 				}
 			}
-				oriNode.setNext(targetNode.getNext());
-				targetNode.setNext(oriNode);
+			oriNode.setNext(targetNode.getNext());
+			targetNode.setNext(oriNode);
 		}
 		return sortedList;
 	}
